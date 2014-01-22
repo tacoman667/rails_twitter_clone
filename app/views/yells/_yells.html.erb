@@ -1,8 +1,8 @@
 <% if @yells then %>
   <% @yells.reverse.each do |yell| %>
     <div class="yell-item">
-    	<div style="font-weight:bold">
-    	  <%= yell.user_name %>
+    	<div class="yell-item-user">
+    	  <%= yell.user.email %>
     	</div>
     	<div>
     	  <blockquote><%= yell.content %></blockquote>

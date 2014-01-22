@@ -1,5 +1,5 @@
 <div class="logout-button">
-  <strong><%= @yell.user_name %></strong>&nbsp;&nbsp;|
+  <strong><%= current_user.email %></strong>&nbsp;&nbsp;|
   <%= link_to 'Logout', '/users/sign_out', method: :delete, :class => 'btn btn-link' %>
 </div>
 

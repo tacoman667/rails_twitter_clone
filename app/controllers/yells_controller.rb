@@ -8,7 +8,7 @@ class YellsController < ApplicationController
   # GET /yells.json
   def index
     @yells = Yell.all
-    @yell = Yell.new(user_name: current_user.email)
+    @yell = Yell.new
   end
 
   # GET /yells/1
@@ -18,7 +18,7 @@ class YellsController < ApplicationController
 
   # GET /yells/new
   def new
-    @yell = Yell.new(user_name: current_user.email)
+    @yell = Yell.new
   end
 
   # GET /yells/1/edit
@@ -29,11 +29,11 @@ class YellsController < ApplicationController
   # POST /yells.json
   def create
     @yell = Yell.new(yell_params)
-    @yell.user_name = current_user.email
+    @yell.user_id = current_user.id
 
     respond_to do |format|
       if @yell.save
-        @yell = Yell.new user_name: @yell.user_name
+        @yell = Yell.new
         format.html { render action: 'index', notice: 'Yell was successfully created.' }
         # format.json { render action: 'show', status: :created, location: @yell }
       else

@@ -1,5 +1,6 @@
 class Yell < ActiveRecord::Base
 
-  validates :user_name, :content, presence: true
+  validates :user_id, :content, presence: true
 
+  belongs_to :user
 end

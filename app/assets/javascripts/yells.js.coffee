@@ -3,12 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready =>
-	$user_name = $("#yell_user_name")
 	$content = $("#yell_content")
-	if $user_name.val().length > 0
-		$content.focus()
-	else
-		$user_name.focus()
+	$content.focus()
 
 	$content.on 'keyup', (ev) =>
 		if ev.keyCode == 13
