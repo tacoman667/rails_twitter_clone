@@ -1,4 +1,5 @@
 TwitterClone::Application.routes.draw do
+  devise_for :users
   resources :yells
 
   root 'yells#index'

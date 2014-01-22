@@ -1,3 +1,8 @@
+<div class="logout-button">
+  <strong><%= @yell.user_name %></strong>&nbsp;&nbsp;|
+  <%= link_to 'Logout', '/users/sign_out', method: :delete, :class => 'btn btn-link' %>
+</div>
+
 <h1>Yeller!</h1>
 
 <div class="row">

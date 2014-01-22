@@ -1,4 +1,6 @@
 class YellsController < ApplicationController
+  before_filter :authenticate_user!
+
   before_action :set_yell, only: [:show, :edit, :update, :destroy]
   before_action :set_yells, only: [:create, :update]
 
@@ -6,7 +8,7 @@ class YellsController < ApplicationController
   # GET /yells.json
   def index
     @yells = Yell.all
-    @yell = Yell.new
+    @yell = Yell.new(user_name: current_user.email)
   end
 
   # GET /yells/1
@@ -16,7 +18,7 @@ class YellsController < ApplicationController
 
   # GET /yells/new
   def new
-    @yell = Yell.new
+    @yell = Yell.new(user_name: current_user.email)
   end
 
   # GET /yells/1/edit
@@ -27,6 +29,7 @@ class YellsController < ApplicationController
   # POST /yells.json
   def create
     @yell = Yell.new(yell_params)
+    @yell.user_name = current_user.email
 
     respond_to do |format|
       if @yell.save
