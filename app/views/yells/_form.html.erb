@@ -1,0 +1,27 @@
+<div class="new-yell-form">
+  <%= form_for(@yell) do |f| %>
+    <% if @yell.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@yell.errors.count, "error") %> prohibited this yell from being saved:</h2>
+
+        <ul>
+        <% @yell.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Who are you?' %>
+      <%= f.text_field :user_name, style: 'width:100%' %>
+    </div>
+    <div class="field">
+      <%= f.label "What are you yellin' about?" %>
+      <%= f.text_area :content, style: 'width:100%' %>
+    </div>
+    <div class="actions" style="text-align:right">
+      <%= f.submit 'Yell it!', :class => 'btn' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<% if @yells then %>
+  <% @yells.reverse.each do |yell| %>
+    <div class="yell-item">
+    	<div style="font-weight:bold">
+    	  <%= yell.user_name %>
+    	</div>
+    	<div>
+    	  <blockquote><%= yell.content %></blockquote>
+    	</div>
+    	<div class="btn-group btn-group-sm yell-item-btns">
+    	  <%= link_to 'Edit', edit_yell_path(yell), :class => 'btn btn-default' %>
+    	  <%= link_to 'Delete', yell, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, format: :json, :class => 'btn btn-danger' %>
+    	</div>
+    </div>
+  <% end %>
+<% end %>
